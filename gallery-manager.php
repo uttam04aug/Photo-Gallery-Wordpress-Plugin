@@ -1,11 +1,15 @@
 <?php
-/**
- * Plugin Name: Photo Gallery
- * Description: Advanced folder-based gallery with infinite scroll and lightbox
- * Version: 2.0.0
- * Author: Uttam Singh
- * Text Domain: gallery
- */
+/*
+Plugin Name: Photo Gallery
+Plugin URI: https://github.com/uttam04aug/Photo-Gallery-Wordpress-Plugin
+Description: Advanced folder-based gallery with infinite scroll and lightbox support. Easily create and display photo galleries on your site.
+Version: 2.0.0
+Author: Uttam Singh
+Author URI: https://github.com/uttam04aug
+License: GPL v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: gallery
+*/
  
 if (!defined('ABSPATH')) exit;
 global $wpdb;
