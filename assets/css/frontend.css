@@ -1,0 +1,586 @@
+/* ===================================
+   GALLERY FRONTEND STYLES - FIXED
+=================================== */
+
+/* Container */
+.gp-all-folders,
+.gp-single-folder {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Main Grid - ALWAYS 3 COLUMNS */
+.gp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 25px;
+    margin: 30px 0;
+    width: 100%;
+}
+
+/* Folder Cards - UNIFORM SIZE */
+.gp-folder-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    height: 320px; /* FIXED HEIGHT */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+
+.gp-folder-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.gp-folder-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+/* Image Container - FIXED ASPECT RATIO */
+.gp-folder-image {
+    position: relative;
+    overflow: hidden;
+    height: 220px; /* FIXED HEIGHT */
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.gp-folder-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* CRITICAL: Ensures uniform cropping */
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gp-folder-card:hover .gp-folder-image img {
+    transform: scale(1.05);
+}
+
+/* Image Overlay */
+.gp-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.7) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    opacity: 0;
+    transition: opacity 0.3s;
+    padding-bottom: 15px;
+}
+
+.gp-folder-card:hover .gp-image-overlay {
+    opacity: 1;
+}
+
+.gp-image-overlay .dashicons {
+    color: white;
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+.gp-count {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    background: rgba(0,0,0,0.6);
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+/* Folder Info - FIXED HEIGHT */
+.gp-folder-info {
+    padding: 18px 15px;
+    background: white;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #f0f0f0;
+    min-height: 60px;
+}
+
+.gp-folder-info h3 {
+    margin: 0;
+    font-size: 17px;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.4;
+    width: 100%;
+}
+
+/* ===================================
+   SINGLE FOLDER IMAGE GRID
+=================================== */
+.gp-single-folder .gp-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+}
+
+.gp-grid-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 250px; /* FIXED HEIGHT */
+    width: 100%;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.gp-grid-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.gp-grid-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* CRITICAL: Ensures uniform cropping */
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gp-grid-item:hover img {
+    transform: scale(1.05);
+}
+
+.gp-lightbox-link {
+    display: block;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* ===================================
+   TITLES
+=================================== */
+.gp-main-title,
+.gp-folder-title {
+    font-size: 28px;
+    color: #2c3e50;
+    margin: 0 0 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #f0f0f0;
+    position: relative;
+}
+
+.gp-folder-title:after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: #0073aa;
+}
+
+.gp-image-count-badge {
+    background: #6c757d;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+/* ===================================
+   BREADCRUMB
+=================================== */
+.gp-breadcrumb {
+    margin: 20px 0 30px;
+    padding: 12px 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #495057;
+    border-left: 4px solid #0073aa;
+}
+
+.gp-breadcrumb a {
+    color: #0073aa;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+    margin-right: 5px;
+}
+
+.gp-breadcrumb a:hover {
+    color: #005a87;
+    text-decoration: underline;
+}
+
+.gp-breadcrumb .separator {
+    margin: 0 8px;
+    color: #6c757d;
+}
+
+.gp-breadcrumb span {
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+/* ===================================
+   PAGINATION - FIXED
+=================================== */
+.gp-pagination {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #e9ecef;
+    clear: both;
+}
+
+.gp-pagination .page-numbers {
+    display: inline-block;
+    margin: 0 3px;
+    padding: 8px 15px;
+    background: white;
+    color: #495057;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+    font-weight: 600;
+    transition: all 0.3s;
+    min-width: 40px;
+    text-align: center;
+}
+
+.gp-pagination .page-numbers:hover {
+    background: #0073aa;
+    color: white;
+    border-color: #0073aa;
+}
+
+.gp-pagination .current {
+    background: #0073aa;
+    color: white;
+    border-color: #0073aa;
+}
+
+.gp-pagination .dots {
+    background: transparent;
+    border: none;
+    min-width: auto;
+}
+
+/* ===================================
+   BACK BUTTON
+=================================== */
+.gp-back-button {
+    display: inline-flex;
+    align-items: center;
+    margin: 25px 0;
+    padding: 10px 20px;
+    background: #0073aa;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+.gp-back-button:hover {
+    background: #005a87;
+    color: white;
+}
+
+.gp-back-button:before {
+    content: '←';
+    margin-right: 8px;
+}
+
+/* ===================================
+   EMPTY STATES
+=================================== */
+.gp-empty-folder,
+.gp-no-folders {
+    text-align: center;
+    padding: 50px 30px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    color: #6c757d;
+    font-size: 16px;
+    border: 2px dashed #dee2e6;
+    margin: 20px 0;
+}
+
+.gp-empty-folder:before,
+.gp-no-folders:before {
+    content: '📁';
+    font-size: 50px;
+    display: block;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+=================================== */
+@media (max-width: 1200px) {
+    .gp-all-folders,
+    .gp-single-folder {
+        max-width: 100%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .gp-grid,
+    .gp-single-folder .gp-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px;
+    }
+    
+    .gp-folder-card {
+        height: 300px;
+    }
+    
+    .gp-folder-image {
+        height: 200px;
+    }
+    
+    .gp-grid-item {
+        height: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .gp-grid,
+    .gp-single-folder .gp-grid {
+        gap: 15px;
+    }
+    
+    .gp-folder-card {
+        height: 280px;
+    }
+    
+    .gp-folder-image {
+        height: 180px;
+    }
+    
+    .gp-grid-item {
+        height: 200px;
+    }
+    
+    .gp-folder-title {
+        font-size: 24px;
+    }
+    
+    .gp-breadcrumb {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .gp-grid,
+    .gp-single-folder .gp-grid {
+        grid-template-columns: 1fr !important;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .gp-folder-card {
+        height: 300px;
+        max-width: 100%;
+    }
+    
+    .gp-folder-image {
+        height: 200px;
+    }
+    
+    .gp-grid-item {
+        height: 250px;
+        max-width: 100%;
+    }
+    
+    .gp-all-folders,
+    .gp-single-folder {
+        padding: 0 15px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gp-folder-card {
+        height: 280px;
+    }
+    
+    .gp-folder-image {
+        height: 180px;
+    }
+    
+    .gp-grid-item {
+        height: 220px;
+    }
+    
+    .gp-pagination .page-numbers {
+        padding: 6px 12px;
+        margin: 0 2px;
+        min-width: 35px;
+        font-size: 14px;
+    }
+}
+
+
+
+/* Lightbox Styles */
+.gp-lightbox-link {
+    cursor: zoom-in;
+    transition: transform 0.3s;
+}
+
+.gp-lightbox-link:hover {
+    transform: scale(1.02);
+}
+
+/* Lightbox overlay */
+.gp-lightbox-overlay {
+    animation: gpFadeIn 0.3s ease;
+}
+
+@keyframes gpFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Lightbox image */
+.gp-lightbox-image {
+    animation: gpZoomIn 0.3s ease;
+}
+
+@keyframes gpZoomIn {
+    from { 
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to { 
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Navigation buttons hover effect */
+.gp-lightbox-prev:hover,
+.gp-lightbox-next:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-50%) scale(1.1) !important;
+}
+
+/* Close button hover */
+.gp-lightbox-close:hover {
+    color: #ff6b6b !important;
+}
+
+
+
+/* INFINITE SCROLL STYLES */
+.gp-loading-container {
+    text-align: center;
+    padding: 40px 20px;
+    grid-column: 1 / -1;
+}
+
+.gp-loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #0073aa;
+    border-radius: 50%;
+    animation: gp-spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+.gp-loading-text {
+    color: #666;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.gp-no-more-images {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+    font-size: 16px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin: 20px 0;
+    grid-column: 1 / -1;
+}
+
+.gp-load-more-btn {
+    display: block;
+    margin: 30px auto;
+    padding: 12px 30px;
+    background: #0073aa;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    grid-column: 1 / -1;
+}
+
+.gp-load-more-btn:hover {
+    background: #005a87;
+    transform: translateY(-2px);
+}
+
+.gp-load-more-btn:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+@keyframes gp-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.gp-image-hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.gp-image-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .gp-load-more-btn {
+        padding: 10px 25px;
+        font-size: 15px;
+    }
+    
+    .gp-loading-container {
+        padding: 30px 15px;
+    }
+}
